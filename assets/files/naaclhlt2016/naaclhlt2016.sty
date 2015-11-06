@@ -55,6 +55,12 @@
 %       \bibliographystyle{naacl}
 %       \end{document}
 
+% Delete code copied from everyshi and use everyshi directly to prevent
+% conflict when using todonotes.  This problem has existed for quite
+% some time, e.g.:
+%     http://tex.stackexchange.com/questions/76314/everyshipout-errors-when-using-tikz-with-conference-style
+\usepackage{everyshi}
+
 \typeout{Conference Style for NAACL-HLT 2016 -- released October 13, 2015}
 
 % NOTE:  Some laser printers have a serious problem printing TeX output.
@@ -101,60 +107,6 @@
 \newif\ifnaaclfinal
 \naaclfinalfalse
 \def\naaclfinalcopy{\global\naaclfinaltrue}
-
-%% ----- Set up hooks to repeat content on every page of the output doc, 
-%% necessary for the line numbers in the submitted version.  --MM
-%%
-%% Copied from CVPR 2015's cvpr_eso.sty, which appears to be largely copied from everyshi.sty.
-%%
-%% Original cvpr_eso.sty available at: http://www.pamitc.org/cvpr15/author_guidelines.php
-%% Original evershi.sty available at: https://www.ctan.org/pkg/everyshi
-%%
-%% Copyright (C) 2001 Martin Schr\"oder:
-%% 
-%%                         Martin Schr"oder
-%%                         Cr"usemannallee 3
-%%                         D-28213 Bremen
-%%                         Martin.Schroeder@ACM.org
-%% 
-%% This program may be redistributed and/or modified under the terms
-%% of the LaTeX Project Public License, either version 1.0 of this
-%% license, or (at your option) any later version.
-%% The latest version of this license is in
-%%    CTAN:macros/latex/base/lppl.txt.
-%% 
-%% Happy users are requested to send [Martin] a postcard. :-)
-%%
-\newcommand{\@EveryShipout@Hook}{}
-\newcommand{\@EveryShipout@AtNextHook}{}
-\newcommand*{\EveryShipout}[1]
-   {\g@addto@macro\@EveryShipout@Hook{#1}}
-\newcommand*{\AtNextShipout}[1]
-   {\g@addto@macro\@EveryShipout@AtNextHook{#1}}
-\newcommand{\@EveryShipout@Shipout}{%
-   \afterassignment\@EveryShipout@Test
-   \global\setbox\@cclv= %
-   }
-\newcommand{\@EveryShipout@Test}{%
-   \ifvoid\@cclv\relax
-      \aftergroup\@EveryShipout@Output
-   \else
-      \@EveryShipout@Output
-   \fi%
-   }
-\newcommand{\@EveryShipout@Output}{%
-   \@EveryShipout@Hook%
-   \@EveryShipout@AtNextHook%
-      \gdef\@EveryShipout@AtNextHook{}%
-   \@EveryShipout@Org@Shipout\box\@cclv%
-   }
-\newcommand{\@EveryShipout@Org@Shipout}{}
-\newcommand*{\@EveryShipout@Init}{%
-   \message{ABD: EveryShipout initializing macros}%
-   \let\@EveryShipout@Org@Shipout\shipout
-   \let\shipout\@EveryShipout@Shipout
-   }
-\AtBeginDocument{\@EveryShipout@Init}
 
 %% ----- Set up for placing additional items into the submitted version --MM
 %%
