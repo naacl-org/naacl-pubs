@@ -1,6 +1,5 @@
 % This is the LaTex style file for NAACL 2018. Major modifications include
-% changing the color of the line numbers to a light gray; making the font of 
-% the abstract 10pt, and making the size of the captions 1pt smaller than text.
+% changing the color of the line numbers to a light gray; changing font size of abstract to be 10pt.
 % -- Meg Mitchell and Stephanie Lukin
 
 % 2017: modified to support DOI links in bibliography.  Now uses
@@ -408,14 +407,17 @@
   \vskip 0.3in plus 2fil minus 0.1in
 }}
 
-% margins for abstract
+% margins and font size for abstract
 \renewenvironment{abstract}%
 		 {\centerline{\large\bf Abstract}%
 		  \begin{list}{}%
 		     {\setlength{\rightmargin}{0.6cm}%
 		      \setlength{\leftmargin}{0.6cm}}%
-		   \item[]\ignorespaces}%
+		   \item[]\ignorespaces%
+		   \@setsize\normalsize{12pt}\xpt\@xpt
+		   }%
 		 {\unskip\end{list}}
+		
 		     
 %\renewenvironment{abstract}{\centerline{\large\bf  
 % Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
