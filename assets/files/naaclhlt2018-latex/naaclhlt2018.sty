@@ -1,5 +1,5 @@
 % This is the LaTex style file for NAACL 2018. Major modifications include
-% changing the color of the line numbers to a light gray; changing font size of abstract to be 10pt.
+% changing the color of the line numbers to a light gray; changing font size of abstract to be 10pt; changing caption font size to be 10pt.
 % -- Meg Mitchell and Stephanie Lukin
 
 % 2017: modified to support DOI links in bibliography.  Now uses
@@ -417,10 +417,17 @@
 		   \@setsize\normalsize{12pt}\xpt\@xpt
 		   }%
 		 {\unskip\end{list}}
-		
-		     
+  
 %\renewenvironment{abstract}{\centerline{\large\bf  
 % Abstract}\vspace{0.5ex}\begin{quote}}{\par\end{quote}\vskip 1ex}
+
+% Resizing figure and table captions
+\newcommand{\figcapfont}{\rm}
+\newcommand{\tabcapfont}{\rm}
+\renewcommand{\fnum@figure}{\figcapfont Figure \thefigure}
+\renewcommand{\fnum@table}{\tabcapfont Table \thetable}
+\renewcommand{\figcapfont}{\@setsize\normalsize{12pt}\xpt\@xpt}
+\renewcommand{\tabcapfont}{\@setsize\normalsize{12pt}\xpt\@xpt}	
 
 \RequirePackage{natbib}
 % for citation commands in the .tex, authors can use:
