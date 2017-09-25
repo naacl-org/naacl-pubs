@@ -1,4 +1,4 @@
-%% Output of docstrip was hand-edited to handle create doi links.
+%% Output of docstrip was hand-edited to create doi links.
 %% This file creates bib entries with \href commands in the title.
 %% You must use the hyperref package, or define \href to do nothing.
 %% Dan Gildea (gildea) 2016/10/30
@@ -8,6 +8,7 @@
 %% https://doi.org/ syntax.
 %% Modified further by Min-Yen Kan (knmnyn) to use the URL field for
 %% reference when no DOI is present.
+%% Modified to use \url command for visible urls -- Dan Gildea 2017/4/12
 %%
 %% This is file `acl.bst',
 %% generated with the docstrip utility.
@@ -509,37 +510,37 @@ FUNCTION {format.note}
 
 FUNCTION {doilink}
 { duplicate$ empty$
-{ pop$ "" }
-{ doi empty$
-    { url empty$ 
-        { skip$ }
-        { "\href{" url * "}{" * swap$ * "}" * }
-    if$
+    { pop$ "" }
+    { doi empty$
+	{ url empty$ 
+            { skip$ }
+            { "\href{" url * "}{" * swap$ * "}" * }
+	  if$
+	}
+	{ "\href{https://doi.org/" doi * "}{" * swap$ * "}" * }
+      if$
     }
-    { "\href{https://doi.org/" doi * "}{" * swap$ * "}" * }
   if$
-}
-if$
 }
 
 FUNCTION {format.doi}
 { doi empty$
     { "" }
-    { "https://doi.org/" doi * doilink }
+    { "\url{https://doi.org/" doi * "}" * }
   if$
   "doi" bibinfo.check
 }
 
 FUNCTION {format.url}
 { doi empty$
-  { 
-  url
-  duplicate$ empty$ 'skip$
-    { doilink }
-  if$
-  "url" bibinfo.check
-  }
-  { "" }
+    { 
+      url empty$
+	{ "" }
+	{ "\url{" url * "}" * }
+      if$
+      "url" bibinfo.check
+    }
+    { "" }
   if$
 }
 
