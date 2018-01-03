@@ -404,6 +404,9 @@ conform to these requirements may be rejected without review.
 the heading {\bf References}; place the section before any Appendices,
 unless they contain references. Arrange the references alphabetically
 by first author, rather than by order of occurrence in the text.
+By using a .bib file, as in this template, this will be automatically 
+handled for you. See the \verb|\bibliography| commands near the end for more.
+
 Provide as complete a citation as possible, using a consistent format,
 such as the one for {\em Computational Linguistics\/} or the one in the 
 {\em Publication Manual of the American 
@@ -414,7 +417,15 @@ for common computer science journals can be found in the ACM
 
 The \LaTeX{} and Bib\TeX{} style files provided roughly fit the
 American Psychological Association format, allowing regular citations, 
-short citations and multiple citations as described above.
+short citations and multiple citations as described above.  
+
+\begin{itemize}
+\item Example citing an arxiv paper: \cite{rasooli-tetrault-2015}. 
+\item Example article in journal citation: \cite{Ando2005}.
+\item Example article in proceedings, with location: \cite{borsch2011}.
+\item Example article in proceedings, without location: \cite{andrew2007scalable}.
+\end{itemize}
+See corresponding .bib file for further details.
 
 Submissions should accurately reference prior and related work, including code and data. If a piece of prior work appeared in multiple venues, the version that appeared in a refereed, archival venue should be referenced. If multiple versions of a piece of prior work exist, the one used by the authors should be referenced. Authors should not rely on automated citation indices to provide accurate references for prior and related work.
 
@@ -519,11 +530,15 @@ call for papers is the authoritative source.
 
 The acknowledgments should go immediately before the references.  Do
 not number the acknowledgments section. Do not include this section
-when submitting your paper for review.
+when submitting your paper for review. \\
 
-% include your own bib file like this:
-%\bibliographystyle{acl}
-%\bibliography{naaclhlt2018}
+\noindent {\bf Preparing References:} \\
+
+Include your own bib file like this:
+\verb|\bibliographystyle{acl_natbib}|
+\verb|\bibliography{naaclhlt2018}|
+
+Where \verb|naaclhlt2018| corresponds to a naaclhlt2018.bib file.
 \bibliography{naaclhlt2018}
 \bibliographystyle{acl_natbib}
 
@@ -550,9 +565,9 @@ may refer to and cite the supplementary material and the supplementary material 
 reviewers, they will not be asked to review the
 supplementary material.
 
-
 Appendices ({\em i.e.} supplementary material in the form of proofs, tables,
-or pseudo-code) should come after the references, as shown here. Use
+or pseudo-code) should be {\bf uploaded as supplementary material} when submitting the paper for review.
+Upon acceptance, the appendices come after the references, as shown here. Use
 \verb|\appendix| before any appendix section to switch the section
 numbering over to letters.
 
