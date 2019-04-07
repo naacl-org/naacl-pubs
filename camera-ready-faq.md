@@ -106,11 +106,13 @@ commands. Please try to follow these guidelines:
 
    - Include the authors' names and affiliations under the title.
    - De-anonymize references to your own work in the body of the paper.
-   - Where appropriate, add acknowledgments for colleagues, reviewers, and grants.
+   - Where appropriate, add acknowledgments for colleagues, reviewers, and grants. Do not number the Acknowledgements section.
    - Ensure that all tables, graphs, and figures are readable when
      viewed in black and white (to help the color-blind and those
      reading print-outs).
    - Verify that you are following your conference style guidelines (e.g., font sizes, placement of captions)
+   - Be sure not to override the default caption size packages.
+   - If you are including an appendix, please ensure that it uses the same, two-column NAACL template as it will now be part of the main paper, rather than submitted separately (see [Appendix](#whats-the-deal-with-including-an-appendix-do-i-include-it-as-supplemental) section below for more details).
 
 #  How long can it be?
 
