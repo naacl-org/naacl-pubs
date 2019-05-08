@@ -68,8 +68,8 @@ commands. Please try to follow these guidelines:
    mark. For example:
 
    ```
-   Can {LSTM} Learn to Capture Agreement? {T}he Case of {B}asque
-   Named Entity Extraction from Noisy Input: Speech and {OCR}
+   Can {LSTM} {L}earn to {C}apture {A}greement? {T}he {C}ase of {B}asque
+   Named {E}ntity {E}xtraction from {N}oisy {I}nput: {S}peech and {OCR}
    ```
 
    These curly braces will _not_ appear in the online conference
