@@ -1,4 +1,5 @@
-% This is the LaTex style file for ACL 2018, based off of NAACL 2018.
+% This is the LaTex style file for ACL 2020, based off of ACL 2019.
+
 % Addressing bibtex issues mentioned in https://github.com/acl-org/acl-pub/issues/2
 % Other major modifications include
 % changing the color of the line numbers to a light gray; changing font size of abstract to be 10pt; changing caption font size to be 10pt.
@@ -99,7 +100,6 @@
 \ExecuteOptions{hyperref} % default is to use hyperref
 \ProcessOptions\relax
 \ifacl@hyperref
-  \PassOptionsToPackage{breaklinks}{hyperref}
   \RequirePackage{hyperref}
   \usepackage{xcolor}		% make links dark blue
   \definecolor{darkblue}{rgb}{0, 0, 0.5}
@@ -109,10 +109,11 @@
   % It provides a backup, no-op definiton of \href.
   % This is necessary because \href command is used in the acl_natbib.bst file.
   \def\href#1#2{{#2}}
+  % We still need to load xcolor in this case because the lighter line numbers require it. (SC/KG/WL) 
+  \usepackage{xcolor}
 \fi
 
-%\typeout{Conference Style for NAACL-HLT 2018}
-\typeout{Conference Style for ACL 2018}
+\typeout{Conference Style for ACL 2019}
 
 % NOTE:  Some laser printers have a serious problem printing TeX output.
 % These printing devices, commonly known as ``write-white'' laser
@@ -297,7 +298,7 @@
 
 %% ----- Submitted version markup: Page numbers, ruler, and confidentiality.  Using ideas/code from cvpr.sty 2015. --MM
 
-\font\naaclhv  = phvb at 8pt 
+\font\aclhv  = phvb at 8pt 
 
 %% Define vruler %%
 
@@ -328,7 +329,7 @@
 \cv@lineheight=#1\global\aclrulercount=#2%
 \cv@tot\cv@boxheight\divide\cv@tot\cv@lineheight\advance\cv@tot2%
 \cv@refno1\vskip-\cv@lineheight\vskip1ex%
-\loop\setbox\cv@tmpbox=\hbox to0cm{{\naaclhv\hfil\fillzeros[#4]\aclrulercount}}%
+\loop\setbox\cv@tmpbox=\hbox to0cm{{\aclhv\hfil\fillzeros[#4]\aclrulercount}}%
 \ht\cv@tmpbox\cv@lineheight\dp\cv@tmpbox0pt\box\cv@tmpbox\break
 \advance\cv@refno1\global\advance\aclrulercount#3\relax
 \ifnum\cv@refno<\cv@tot\repeat}}\endgroup}%
@@ -336,17 +337,22 @@
 
 
 \def\aclpaperid{***}
-\def\confidential{ACL 2018 Submission~\aclpaperid.  Confidential Review Copy.  DO NOT DISTRIBUTE.}
+\def\confidential{\textcolor{black}{ACL 2020 Submission~\aclpaperid.  Confidential Review Copy.  DO NOT DISTRIBUTE.}}
 
 %% Page numbering, Vruler and Confidentiality %%
 % \makevruler[<SCALE>][<INITIAL_COUNT>][<STEP>][<DIGITS>][<HEIGHT>]
-\def\aclruler#1{\makevruler[14.17pt][#1][1][3][\textheight]\usebox{\aclrulerbox}}
+
+% SC/KG/WL - changed line numbering to gainsboro
+\definecolor{gainsboro}{rgb}{0.8, 0.8, 0.8}
+%\def\aclruler#1{\makevruler[14.17pt][#1][1][3][\textheight]\usebox{\aclrulerbox}}  %% old line
+\def\aclruler#1{\textcolor{gainsboro}{\makevruler[14.17pt][#1][1][3][\textheight]\usebox{\aclrulerbox}}}
+
 \def\leftoffset{-2.1cm} %original: -45pt
 \def\rightoffset{17.5cm} %original: 500pt
-\ifaclfinal\else\pagenumbering{arabic}\fi
+\ifaclfinal\else\pagenumbering{arabic}
 \AddToShipoutPicture{%
 \ifaclfinal\else
-\AtPageLowishCenter{\thepage}
+\AtPageLowishCenter{\textcolor{black}{\thepage}}
 \aclruleroffset=\textheight
 \advance\aclruleroffset4pt
   \AtTextUpperLeft{% 
@@ -356,7 +362,7 @@
       \aclruler{\aclrulercount}}
   }
   \AtTextUpperLeft{%confidential
-    \put(0,\LenToUnit{1cm}){\parbox{\textwidth}{\centering\naaclhv\confidential}}
+    \put(0,\LenToUnit{1cm}){\parbox{\textwidth}{\centering\aclhv\confidential}}
   }
 \fi
 }
@@ -374,7 +380,6 @@
 	\else 
 		% Avoiding common accidental de-anonymization issue. --MM
         \bf Anonymous ACL submission
-        %\bf Anonymous NAACL submission
 	\fi
     \end{tabular}}
 
@@ -446,6 +451,9 @@
 \newcommand\shortcite{\citeyearpar}% to get "(Year)" with natbib    
 \newcommand\newcite{\citet}	% to get "Author (Year)" with natbib    
 
+% DK/IV: Workaround for annoying hyperref pagewrap bug 
+\RequirePackage{etoolbox}
+\patchcmd\@combinedblfloats{\box\@outputbox}{\unvbox\@outputbox}{}{\errmessage{\noexpand patch failed}}
 
 % bibliography
 
