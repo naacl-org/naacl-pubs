@@ -492,18 +492,7 @@ You may encounter the following error during compilation:
 \begin{quote}
 {\small\verb|\pdfendlink|} ended up in different nesting level than {\small\verb|\pdfstartlink|}.
 \end{quote}
-This happens when \texttt{\small pdflatex} is used and a citation splits across a page boundary.
-To fix this, the style file contains a patch consisting of two lines:
-(1) {\small\verb|\RequirePackage{etoolbox}|} (line 455 in \texttt{\small acl2020.sty}), and
-(2) A long line below (line 456 in \texttt{\small acl2020.sty}).
-
-If you still encounter compilation issues even with the patch enabled, disable the patch by commenting the two lines, and then disable the \texttt{\small hyperref} package by loading the style file with the \texttt{\small nohyperref} option:
-
-\noindent
-{\small\verb|\usepackage[nohyperref]{acl2020}|}
-
-\noindent
-Then recompile, find the problematic citation, and rewrite the sentence containing the citation. (See, {\em e.g.}, \url{http://tug.org/errors.html})
+This happens when \texttt{\small pdflatex} is used and a citation splits across a page boundary. The best way to fix this is to upgrade \LaTeX{} to 2018-12-01 or later.
 
 \section*{Acknowledgments}
 
