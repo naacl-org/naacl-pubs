@@ -9,8 +9,8 @@ For authors:
 * [Camera-Ready-FAQ](camera-ready-faq.md)
 
 **For conference publication chairs only**:
-* [*duties.md* Provides a running list of the responsibilities of publication chairs](duties.md), with estimated timelines, and guidance and tips for making the process easier for future chairs.
-* [*full-aclweb-proceedings-howto.md* Will give you the aclweb generation instructions for compiling the main conference, workshops, demos, tutorials for the ACL anthology](full-aclweb-proceedings-howto.md), which is done on your local machine (verified to work on Ubuntu as of 15 May 2018).
+* [*duties.md*](duties.md) provides a running list of the responsibilities of publication chairs with estimated timelines, and guidance and tips for making the process easier for future chairs.
+* [*ACLPUB anthologize documentation*](https://github.com/acl-org/ACLPUB/blob/master/anthologize/README.md) will give you the instructions for compiling the main conference, workshops, demos, tutorials for the ACL Anthology, which is done on your local machine.
 
 
 
