@@ -1,5 +1,5 @@
 # NOTICE 2017: DEPRECATED.
-Please see https://github.com/acl-org/acl-pub as the 'one-stop-shop' for ACL publication files.
+Please see http://acl-org.github.com/ACLPUB (Github: https://github.com/acl-org/ACLPUB) as the 'one-stop-shop' for ACL publication files.
 
 
 # naacl-pubs
